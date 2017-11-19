@@ -51,6 +51,15 @@ html, body {
   font-size: 3em;
 }
 
+.t5 {
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+  margin-top: 1vh;
+  margin-bottom: 5vh;
+  color: #a0a0a0;
+  font-size: 1.5em;
+}
+
 @media only screen and (max-device-width: 768px) {
   /* For mobile phones: */
   .t3 {
@@ -60,6 +69,10 @@ html, body {
   .t4 {
     font-size: 5em;
     margin-bottom: 0.5em;
+  }
+  .t5 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
   }
 }
 
