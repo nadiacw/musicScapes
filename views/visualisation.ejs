@@ -23,6 +23,12 @@
     </a><a>'s musicScape</a></div>
 
   <script>
+
+  // Fade in on start
+  $(document).ready(function() {
+    $("body").hide().fadeIn(2000);
+  });
+
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
       var canvasW = 800;
       var canvasH = 800;
@@ -58,11 +64,6 @@
     var backgroundColor2;
 
     /////////////////////////////////////
-
-    // Fade in on start
-    $(document).ready(function() {
-      $("body").hide().fadeIn(2000);
-    });
 
 
     function setup() {
