@@ -1,0 +1,46 @@
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:100" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+  <div style="display: table; height: 100%; width:100%; overflow: hidden;">
+    <div style="display: table-cell; vertical-align: middle; text-align:center;">
+      <div class="t4">musicScapes</div>
+      <button id="startButton" class="t3">START</button>
+    </div>
+  </div>
+
+  </div>
+
+
+  <script>
+    // Fade in on start
+    $(document).ready(function() {
+      $("body").hide().fadeIn(2000);
+    });
+    document.getElementById("startButton").onclick = function() {
+      console.log("Log into Spotify...");
+    };
+    // Button style
+    var c1 = randomColor({
+      luminosity: 'light'
+    });
+    var c2 = randomColor({
+      luminosity: 'light'
+    });
+    $("#startButton").mouseenter(function() {
+      $(this).css("background", "red").css("background", "-webkit-linear-gradient("+c1+", "+c2+")").css("background", "-o-linear-gradient("+c1+", "+c2+")").css("background", "-moz-linear-gradient("+c1+", "+c2+")").css("background",
+        " linear-gradient("+c1+", "+c2+")");
+    }).mouseleave(function() {
+      $(this).css("background", "#d1d1d1");
+    });
+  </script>
+</body>
+
+</html>

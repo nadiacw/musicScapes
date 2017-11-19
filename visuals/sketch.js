@@ -6,10 +6,10 @@ var X_AXIS = 2;
 
 ////////// MUSIC VARIABLES ////////////
 var mode = 1;
-var valence = 0.8;
-var energy = 0.7;
-var landN = 0; // can be 0,1,2
-var musicKey = 4; // from 0 to 11
+var valence = 0.3;
+var energy = 0.2;
+var landN = 2; // can be 0,1,2
+var musicKey = 6; // from 0 to 11
 
 
 //////////////////////////////////////
@@ -79,7 +79,6 @@ function setup() {
   // KEY --- LAND COLORS
   var currentHue = musicHues[musicKey];
   var currentLum = musicLums[musicKey];
-  console.log(currentLum+currentHue)
 
   landColors = randomColor({
     hue: currentHue,
@@ -246,18 +245,6 @@ function getRandomColor() {
   return c;
 
 }
-
-
-// Image
-var generatedImg;
-window.addEventListener('keypress', function(e) {
-  if (e.keyCode == 13) {
-    console.log("Writing image");
-    var canvas = document.getElementById("defaultCanvas0");
-    generatedImg = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-    console.log(generatedImg);
-  }
-});
 
 
 
