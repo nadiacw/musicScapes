@@ -185,32 +185,39 @@
       stroke(landColor);
       strokeWeight(2);
       noLoop();
-      //FIND THE REFERENCE Y OF EACH MOUNTAIN:
-      var y0 = 6 * height / 7; //first reference y
-      var i0 = level / 4; //initial interval
 
-      var cy = []; //initialize the reference y array
+      var yInit = 6 * height / 7; //initial  y
+      var repetition = level / 4;
+
+      var yArray = [];
       for (var j = 0; j < 4; j++) {
-        cy[4 - j] = y0;
-        y0 -= i0 / pow(1.2, j);
+        yArray[4 - j] = yInit;
+        yInit -= repetition / pow(1.2, j);
       }
-      //DRAW THE MOUNTAINS/
+
       var dx = 0;
 
+      // Only two mountains at a time
       for (var j = 1; j < 3; j++) {
-        var a = random(-height / 2, height / 2); //random discrepancy between the sin waves
-        var b = random(-height / 2, height / 2); //random discrepancy between the sin waves
-        var c = random(2, 4); //random amplitude for the second sin wave
-        var d = map(energy, 0.0, 1.0, 5, 100); //noise function amplitude
-        var e = random(-width / 2, width / 2); //adds a discrepancy between the noise of each mountain
-        var f = map(energy, 0.0, 1.0, 0.2, 2.5);
+
+        var n1 = random(-height / 2, height / 2);
+        var n2 = random(-height / 2, height / 2);
+
+        var n3 = random(2, 4);
+
+        var n4 = map(energy, 0.0, 1.0, 5, 100);
+
+        var n5 = random(-width / 2, width / 2);
+
+        var n6 = map(energy, 0.0, 1.0, 0.15, 3);
 
         for (var x = 0; x < width; x++) {
-          var y = cy[j]; //y = reference y
-          y += 10 * j * sin(2 * dx / j + a); //first sin wave oscillates according to j (the closer the mountain, the bigger the amplitude and smaller the frequency)
-          y += c * j * sin(5 * dx / j + b); //second sin wave has a random medium amplitude (affects more the further mountains) and bigger frequenc
-          y += d * j * noise(f * dx / j + e); //first noise function adds randomness to the mountains, amplitude depends on a random number and increases with j, frequency decrases with j
-          y += 1.7 * j * noise(10 * dx); //second noise function simulates the canopy, it has high frequency and small amplitude depending on j so it is smoother on the further mountains
+
+          var y = yArray[j];
+          y += 10 * j * sin(2 * dx / j + n1);
+          y += n3 * j * sin(5 * dx / j + n2);
+          y += n4 * j * noise(n6 * dx / j + n5);
+          y += 1.7 * j * noise(10 * dx);
 
           line(x, y, x, height);
 
