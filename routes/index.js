@@ -5,7 +5,7 @@ var querystring = require('querystring');
 
 var client_id = '66c3beba677040d3bfa0eb1e607bc5b9';
 var client_secret = '99e3ac371d1d4b03a5d742cb3939dc1b';
-var redirect_uri = 'http://localhost:3000/spotifycallback';
+var redirect_uri = 'https://musicscapes.herokuapp.com/spotifycallback';
 var stateKey = 'spotify_auth_state';
 
 var spotifyApi = new SpotifyWebApi({
