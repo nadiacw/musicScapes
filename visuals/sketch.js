@@ -6,10 +6,13 @@ var X_AXIS = 2;
 
 ////////// MUSIC VARIABLES ////////////
 var mode = 1;
-var valence = 0.3;
+var valence = 0.8;
 var energy = 0.7;
-var landN = 1; // can be 0,1,2
-var musicKey = 7; // from 0 to 11
+var landN = 0; // can be 0,1,2
+var musicKey = 4; // from 0 to 11
+
+
+//////////////////////////////////////
 
 var musicHues = ['yellow', 'yellow', 'orange', 'red', 'red', 'pink', 'pink', 'purple', 'blue', 'blue', 'green', 'green'];
 var musicLums = ['light', 'bright', 'bright', 'bright', 'light', 'bright', 'light', 'bright', 'bright', 'light', 'bright', 'light'];
@@ -21,15 +24,16 @@ var sunPos;
 
 var landColors;
 
-///////////////////////////////
-
 var backgroundColor1;
 var backgroundColor2;
+
+/////////////////////////////////////
 
 // Fade in on start
 $(document).ready(function() {
   $("body").hide().fadeIn(2000);
 });
+
 
 function setup() {
 
@@ -75,6 +79,7 @@ function setup() {
   // KEY --- LAND COLORS
   var currentHue = musicHues[musicKey];
   var currentLum = musicLums[musicKey];
+  console.log(currentLum+currentHue)
 
   landColors = randomColor({
     hue: currentHue,
@@ -102,10 +107,9 @@ function setup() {
   setGradient(0, 0, width, height + height / 3, backgroundColor1, backgroundColor2, Y_AXIS);
 }
 
+/// Gradient function
 function setGradient(x, y, w, h, c1, c2, axis) {
-
   noFill();
-
   if (axis == Y_AXIS) { // Top to bottom gradient
     for (var i = y; i <= y + h; i++) {
       var inter = map(i, y, y + h, 0, 1);
