@@ -1,15 +1,21 @@
-var canvasW = 960;
-var canvasH = 360;
+
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {
+  var canvasW = 800;
+  var canvasH = 800;
+}else{
+  var canvasW = 960;
+  var canvasH = 360;
+}
 
 var Y_AXIS = 1;
 var X_AXIS = 2;
 
 ////////// MUSIC VARIABLES ////////////
 var mode = 1;
-var valence = 0.3;
-var energy = 0.2;
-var landN = 2; // can be 0,1,2
-var musicKey = 6; // from 0 to 11
+var valence = 0.8;
+var energy = 0.6;
+var landN = 0; // can be 0,1,2
+var musicKey = 4; // from 0 to 11
 
 
 //////////////////////////////////////
@@ -239,6 +245,21 @@ function draw() {
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Not used right now!
+
 function getRandomColor() {
 
   var c = color(random(255), random(255), random(255), random(255));
@@ -246,9 +267,6 @@ function getRandomColor() {
 
 }
 
-
-
-// Not used right now!
 
 function skyRipples() {
   stroke(randomColor({

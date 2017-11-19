@@ -8,7 +8,14 @@ html, body {
   text-align: center;
   margin-top: 80vh;
   color: #a0a0a0;
-  font-size: 25px;
+  font-size: 2em;
+}
+
+@media only screen and (max-device-width: 768px) {
+    /* For mobile phones: */
+  .t1 {
+    font-size: 3em;
+  }
 }
 
 .t2 {
@@ -34,7 +41,6 @@ html, body {
 .t3:hover {
   /*background-color: #b7b7b7;*/
   outline: none;
-
 }
 
 .t4 {
