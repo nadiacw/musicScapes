@@ -1,0 +1,77 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.t1 {
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+  margin-top: 80vh;
+  color: #a0a0a0;
+  font-size: 2em;
+}
+
+@media only screen and (max-device-width: 768px) {
+  /* For mobile phones: */
+  .t1 {
+    font-size: 3em;
+  }
+}
+
+.t2 {
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+  margin-top: 5vh;
+  color: #a0a0a0;
+  font-size: 20px;
+}
+
+.t3 {
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+  font-size: 2em;
+  background-color: #d1d1d1;
+  border: none;
+  color: white;
+  padding: 0.4em 0.8em;
+  display: inline-block;
+  outline: none;
+}
+
+.t3:hover {
+  outline: none;
+}
+
+.t4 {
+  font-family: 'Work Sans', sans-serif;
+  text-align: center;
+  line-height: 100px;
+  margin-top: 5vh;
+  color: #a0a0a0;
+  font-size: 3em;
+}
+
+@media only screen and (max-device-width: 768px) {
+  /* For mobile phones: */
+  .t3 {
+    font-size: 5em;
+    padding: 0.2em 0.5em;
+  }
+  .t4{
+    font-size: 5em;
+    margin-bottom: 0.5em;
+  }
+}
+
+canvas {
+  padding: 0;
+  margin: auto;
+  display: block;
+  width: 800px;
+  height: 600px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
