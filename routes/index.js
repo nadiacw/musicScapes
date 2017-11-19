@@ -75,7 +75,7 @@ router.get('/spotifycallback', function(req, res, next) {
                 console.log('timeDIff' + 0)
             }
 
-            else if (timeDif < 10 && timeDif > 18){
+            else if (timeDif > 10 && timeDif < 18){
                 req.session.timeDiff = 1;
                 console.log('timeDIff' + 1)
             }
