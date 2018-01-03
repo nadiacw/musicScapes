@@ -7,7 +7,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
 
-  <link href="https://fonts.googleapis.com/css?family=Work+Sans:100" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,700" rel="stylesheet">
 
   <title>
     <%= title %>
@@ -23,8 +23,10 @@
     </a><a>'s musicScape</a>
     <span class="tooltiptext">
       <p>The <b>backgound</b> of your musicScape is <a id="valenceColor">color</a> because you've recently listened to happy/sad music.</p>
-      <p>It's <a id="daynighttime">daytime</a> in your musicScape because your recent music is mostly in <a id="mode">major</a> mode</p>
-      <p>minor mode songs = night</p>
+      <p>It's <b id="daynighttime">daytime</b> in your musicScape because your recent music is mostly in <b id="mode">major</b> mode.</p>
+      <p>The mountains are more jagged because you've listened to more energetic songs.</p>
+      <p>You've been very active listener in the past hours, so your musicScape has more mountains.</p>
+      <p>The mountains are color because your songs are mostly in the key C.</p>
     </span>
   </div>
   <!-- <div class="tooltip">Hover over me
@@ -77,9 +79,6 @@
 
       // VALENCE -- Background color
       var valenceColor = musicHues[Math.round(map(valence, 0.0, 1.0, 11, 0))];
-      document.getElementById("valenceColor").innerHtml = valenceColor;
-      document.getElementById("valenceColor").style.color = "blue";
-      console.log(document.getElementById("valenceColor").innerHtml);
 
       // MODE -- day/night
       if (mode == 1) {
@@ -122,6 +121,9 @@
         document.getElementById("mode").innerHtml = "minor";
 
       }
+
+      document.getElementById("valenceColor").innerHtml = valenceColor.toString();
+      document.getElementById("valenceColor").style.color = backgroundColor1;
 
       // KEY --- LAND COLORS
       var currentHue = musicHues[musicKey];
