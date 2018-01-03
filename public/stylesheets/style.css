@@ -102,7 +102,7 @@ canvas {
 }
 
 /* Tooltip text */
-.tooltip .tooltiptext {
+.t1 .tooltiptext {
     visibility: hidden;
     width: 120px;
     background-color: black;
@@ -117,6 +117,6 @@ canvas {
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
+.t1:hover .tooltiptext {
     visibility: visible;
 }
