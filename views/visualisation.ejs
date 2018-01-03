@@ -8,6 +8,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
 
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
   <title>
     <%= title %>
@@ -22,9 +23,9 @@
       <%= u.id %>
     </a><a>'s musicScape</a>
     <span class="tooltiptext">
-      <p>The <b>backgound</b> of your musicScape is <a id="valenceColor">color</a> because you've recently listened to happy/sad music.</p>
+      <p>The <b>backgound</b> of your musicScape is <a id="valenceColor">color</a> because you've recently listened to music that relates to <a id="valenceString">valence</a> emotions.</p>
       <p>It's <b id="daynighttime">daytime</b> in your musicScape because your recent music is mostly in <b id="mode">major</b> mode.</p>
-      <p>The mountains are more jagged because you've listened to more energetic songs.</p>
+      <p>The mountains are <a id="energy">more</a> jagged because you've listened to <a id="energy">more</a> energetic songs.</p>
       <p>You've been very active listener in the past hours, so your musicScape has more mountains.</p>
       <p>The mountains are color because your songs are mostly in the key C.</p>
     </span>
@@ -122,8 +123,19 @@
 
       }
 
-      document.getElementById("valenceColor").innerHtml = valenceColor.toString();
+      // FOR THE TOOLTIP
+      var valenceCstring = valenceColor.toString();
+      document.getElementById("valenceColor").innerHtml = valenceCstring;
       document.getElementById("valenceColor").style.color = backgroundColor1;
+      if (valence > 0.5)
+        document.getElementById("valenceString").innerHtml = "positive";
+      else
+        document.getElementById("valenceString").innerHtml = "negative";
+
+      if (energy > 0.5)
+        document.getElementById("energy").innerHtml = "more";
+      else
+        document.getElementById("energy").innerHtml = "less";
 
       // KEY --- LAND COLORS
       var currentHue = musicHues[musicKey];

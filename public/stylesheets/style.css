@@ -103,6 +103,7 @@ canvas {
 /* Tooltip text */
 
 .t1 .tooltiptext {
+  font-family: 'Roboto', sans-serif;
   visibility: hidden;
   width: 120px;
   background-color: white;
