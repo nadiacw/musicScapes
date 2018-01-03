@@ -10,8 +10,8 @@ html, body {
   color: #a0a0a0;
   font-size: 2em;
 
-  position: relative;
-  display: inline-block;
+  /* position: relative;
+  display: inline-block; */
 }
 
 @media only screen and (max-device-width: 768px) {
