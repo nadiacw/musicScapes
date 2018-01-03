@@ -22,8 +22,8 @@
       <%= u.id %>
     </a><a>'s musicScape</a>
     <span class="tooltiptext">
-      <p>The <b>backgound</b> of your landscape is <a id="valenceColor">color</a> because you've recently listened to happy/sad music.</p>
-      <p>major mode songs = day</p>
+      <p>The <b>backgound</b> of your musicScape is <a id="valenceColor">color</a> because you've recently listened to happy/sad music.</p>
+      <p>It's <a id="daynighttime">daytime</a> in your musicScape because your recent music is mostly in <a id="mode">major</a> mode</p>
       <p>minor mode songs = night</p>
     </span>
   </div>
@@ -78,6 +78,7 @@
       // VALENCE -- Background color
       var valenceColor = musicHues[Math.round(map(valence, 0.0, 1.0, 11, 0))];
       document.getElementById("valenceColor").innerHtml = valenceColor;
+      document.getElementById("valenceColor").style.color = "blue";
       console.log(document.getElementById("valenceColor").innerHtml);
 
       // MODE -- day/night
@@ -97,6 +98,9 @@
         });
         sunSize = random(200, 300);
         sunRange = random(20, 50);
+
+        document.getElementById("mode").innerHtml = "major";
+
       } else if (mode == 0) {
         // Minor mode --- NIGHT
         backgroundColor1 = color(randomColor({
@@ -114,6 +118,9 @@
         });
         sunSize = random(75, 150);
         sunRange = random(5, 10);
+
+        document.getElementById("mode").innerHtml = "minor";
+
       }
 
       // KEY --- LAND COLORS
