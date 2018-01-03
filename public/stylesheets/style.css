@@ -108,10 +108,17 @@ canvas {
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
-    font-size: 1em;
+    font-size: 0.5em;
+
+    display: inline;
+      position:absolute;
+      top: -25px;
+      left: 0;
+      right: 0;
+      text-align: center;
 
     /* Position the tooltip text - see examples below! */
-    position: absolute;
+    /* position: absolute; */
     z-index: 1;
 }
 
