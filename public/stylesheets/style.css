@@ -92,37 +92,38 @@ canvas {
 /* Tooltip */
 
 /* Tooltip container */
+
 .tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  /* If you want dots under the hoverable text */
 }
 
 /* Tooltip text */
+
 .t1 .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: white;
-    opacity: 0.75;
-    color: #a0a0a0;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    font-size: 0.5em;
-
-    display: inline;
-      position:absolute;
-      top: -25px;
-      left: 0;
-      right: 0;
-      text-align: center;
-
-    /* Position the tooltip text - see examples below! */
-    /* position: absolute; */
-    z-index: 1;
+  visibility: hidden;
+  width: 120px;
+  background-color: white;
+  opacity: 0.75;
+  color: #a0a0a0;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  font-size: 0.25em;
+  text-align: center;
+  /* Position the tooltip text - see examples below! */
+  width: 120px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  /* Use half of the width (120/2 = 60), to center the tooltip */
+  z-index: 1;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
+
 .t1:hover .tooltiptext {
-    visibility: visible;
+  visibility: visible;
 }
