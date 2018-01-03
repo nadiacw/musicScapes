@@ -9,9 +9,6 @@ html, body {
   margin-top: 80vh;
   color: #a0a0a0;
   font-size: 2em;
-
-  /* position: relative;
-  display: inline-block; */
 }
 
 @media only screen and (max-device-width: 768px) {
@@ -105,11 +102,13 @@ canvas {
 .t1 .tooltiptext {
     visibility: hidden;
     width: 120px;
-    background-color: black;
-    color: #fff;
+    background-color: white;
+    opacity: 0.75;
+    color: #a0a0a0;
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
+    font-size: 1em;
 
     /* Position the tooltip text - see examples below! */
     position: absolute;
