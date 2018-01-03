@@ -22,7 +22,7 @@
       <%= u.id %>
     </a><a>'s musicScape</a>
     <span class="tooltiptext">
-      <p>backgound = valence</p>
+      <p>The <b>backgound</b> of your landscape is <a id="valenceColor"></a> because you've recently listened to happy/sad music.</p>
       <p>major mode songs = day</p>
       <p>minor mode songs = night</p>
     </span>
@@ -77,6 +77,7 @@
 
       // VALENCE -- Background color
       var valenceColor = musicHues[Math.round(map(valence, 0.0, 1.0, 11, 0))];
+      getElementById("valenceColor").innerHtml = valenceColor;
 
       // MODE -- day/night
       if (mode == 1) {
