@@ -106,18 +106,18 @@ canvas {
   font-family: 'Roboto', sans-serif;
   visibility: hidden;
   width: 120px;
-  background-color: white;
+  background-color: #fcfcfc;
   opacity: 0.75;
   color: #a0a0a0;
   text-align: center;
-  padding: 5px 0;
+  padding: 5px 10px;
   border-radius: 6px;
   font-size: 0.3em;
   text-align: center;
   /* Position the tooltip text - see examples below! */
-  width: 120px;
-  bottom: 100%;
-  left: 50%;
+  width: auto;
+  bottom: 20%;
+  position: absolute;
   /* Use half of the width (120/2 = 60), to center the tooltip */
   z-index: 1;
 }

@@ -23,9 +23,9 @@
       <%= u.id %>
     </a><a>'s musicScape</a>
     <span class="tooltiptext">
-      <p>The <b>backgound</b> of your musicScape is <a id="valenceColor">color</a> because you've recently listened to music that relates to <a id="valenceString">valence</a> emotions.</p>
-      <p>It's <b id="daynighttime">daytime</b> in your musicScape because your recent music is mostly in <b id="mode">major</b> mode.</p>
-      <p>The mountains are <a id="energy">more</a> jagged because you've listened to <a id="energy">more</a> energetic songs.</p>
+      <p>The <b>backgound</b> of your musicScape is <a id="valenceColor"></a> because you've recently listened to music that relates to <a id="valenceString"></a> emotions.</p>
+      <p>It's <b id="daynighttime"></b> in your musicScape because your recent music is mostly in <b id="mode"></b> mode.</p>
+      <p>The mountains are <a id="energy"></a> jagged because you've listened to <a id="energy"></a> energetic songs.</p>
       <p>You've been very active listener in the past hours, so your musicScape has more mountains.</p>
       <p>The mountains are color because your songs are mostly in the key C.</p>
     </span>
@@ -125,7 +125,7 @@
 
       // FOR THE TOOLTIP
       var valenceCstring = valenceColor.toString();
-      document.getElementById("valenceColor").innerHtml = valenceCstring;
+      document.getElementById("valenceColor").innerText = valenceCstring;
       document.getElementById("valenceColor").style.color = backgroundColor1;
       if (valence > 0.5)
         document.getElementById("valenceString").innerHtml = "positive";
