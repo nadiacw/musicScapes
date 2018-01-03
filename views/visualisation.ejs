@@ -144,10 +144,6 @@
       var currentHue = musicHues[musicKey];
       var currentLum = musicLums[musicKey];
 
-      document.getElementById("keyColor").innerText = currentLum.toString() + currentHue.toString();
-      // TODO: translate to music key (A,B,C...)
-      // document.getElementById("keyName").innerText = musicKey;
-
       landColors = randomColor({
         hue: currentHue,
         luminosity: currentLum,
@@ -155,6 +151,12 @@
         format: 'rgba',
         alpha: 0.5
       });
+
+
+      document.getElementById("keyColor").innerText = currentLum.toString() + " " + currentHue.toString();
+      document.getElementById("keyColor").innerText.style.color = landColors[0];
+      // TODO: translate to music key (A,B,C...)
+      // document.getElementById("keyName").innerText = musicKey;
 
       // LISTENS PER HOUR --- NUMBER OF LANDS
       if (landN == 2) {
