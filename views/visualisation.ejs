@@ -25,9 +25,9 @@
     <span class="tooltiptext">
       <p>The <b>backgound</b> of your musicScape is <a id="valenceColor"></a> because you've recently listened to music that relates to <a id="valenceString"></a> emotions.</p>
       <p>It's <b id="daynighttime"></b> in your musicScape because your recent music is mostly in <b id="mode"></b> mode.</p>
-      <p>The mountains are <a id="energy"></a> jagged because you've listened to <a id="energy"></a> energetic songs.</p>
-      <p>You've been a <a id="listener">very active</a> listener in the past hours, so your musicScape has <a id="pairsMountains">1 pairs</a> of mountains.</p>
-      <p>The mountains are color because your songs are mostly in the key C.</p>
+      <p>The mountains are <a id="energy"></a> jagged because you've listened to <a id="energy1"></a> energetic songs.</p>
+      <p>You've been a <a id="listener"></a> listener in the past hours, so your musicScape has <a id="pairsMountains"></a> of mountains.</p>
+      <p>The <b>mountains</b> are <a id="keyColor"></a> because your songs are mostly in the key <a id="keyName"><a>.</p>
     </span>
   </div>
   <!-- <div class="tooltip">Hover over me
@@ -131,15 +131,22 @@
       else
         document.getElementById("valenceString").innerText = "negative";
 
-      if (energy > 0.5)
+      if (energy > 0.5) {
         document.getElementById("energy").innerText = "more";
-      else
+        document.getElementById("energy1").innerText = "more";
+      } else {
         document.getElementById("energy").innerText = "less";
+        document.getElementById("energy1").innerText = "less";
+      }
 
 
       // KEY --- LAND COLORS
       var currentHue = musicHues[musicKey];
       var currentLum = musicLums[musicKey];
+
+      document.getElementById("keyColor").innerText = currentLum.toString() + currentHue.toString();
+      // TODO: translate to music key (A,B,C...)
+      // document.getElementById("keyName").innerText = musicKey;
 
       landColors = randomColor({
         hue: currentHue,
@@ -152,14 +159,16 @@
       // LISTENS PER HOUR --- NUMBER OF LANDS
       if (landN == 2) {
         landN = 0;
-        document.getElementById("listener").innerText = "very active";
+        document.getElementById("listener").innerText = "less active";
+        document.getElementById("pairsMountains").innerText = "1 pair";
       } else if (landN == 0) {
         landN = 2;
-        document.getElementById("listener").innerText = "less active";
+        document.getElementById("listener").innerText = "very active";
+        document.getElementById("pairsMountains").innerText = "3 pairs";
       } else if (landN == 1) {
         document.getElementById("listener").innerText = "active";
+        document.getElementById("pairsMountains").innerText = "2 pairs";
       }
-      document.getElementById("pairsMountains").innerText = landN.toString();
 
 
       // Canvas element
