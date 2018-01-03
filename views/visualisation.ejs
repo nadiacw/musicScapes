@@ -26,7 +26,7 @@
       <p>The <b>backgound</b> of your musicScape is <a id="valenceColor"></a> because you've recently listened to music that relates to <a id="valenceString"></a> emotions.</p>
       <p>It's <b id="daynighttime"></b> in your musicScape because your recent music is mostly in <b id="mode"></b> mode.</p>
       <p>The mountains are <a id="energy"></a> jagged because you've listened to <a id="energy"></a> energetic songs.</p>
-      <p>You've been very active listener in the past hours, so your musicScape has more mountains.</p>
+      <p>You've been a <a id="listener">very active</a> listener in the past hours, so your musicScape has <a id="pairsMountains">1 pairs</a> of mountains.</p>
       <p>The mountains are color because your songs are mostly in the key C.</p>
     </span>
   </div>
@@ -98,8 +98,8 @@
         });
         sunSize = random(200, 300);
         sunRange = random(20, 50);
-
-        document.getElementById("mode").innerHtml = "major";
+        document.getElementById("daynighttime").innerText = "daytime";
+        document.getElementById("mode").innerText = "major";
 
       } else if (mode == 0) {
         // Minor mode --- NIGHT
@@ -118,24 +118,24 @@
         });
         sunSize = random(75, 150);
         sunRange = random(5, 10);
-
-        document.getElementById("mode").innerHtml = "minor";
+        document.getElementById("daynighttime").innerText = "nighttime";
+        document.getElementById("mode").innerText = "minor";
 
       }
 
       // FOR THE TOOLTIP
-      var valenceCstring = valenceColor.toString();
-      document.getElementById("valenceColor").innerText = valenceCstring;
+      document.getElementById("valenceColor").innerText = valenceColor.toString();
       document.getElementById("valenceColor").style.color = backgroundColor1;
       if (valence > 0.5)
-        document.getElementById("valenceString").innerHtml = "positive";
+        document.getElementById("valenceString").innerText = "positive";
       else
-        document.getElementById("valenceString").innerHtml = "negative";
+        document.getElementById("valenceString").innerText = "negative";
 
       if (energy > 0.5)
-        document.getElementById("energy").innerHtml = "more";
+        document.getElementById("energy").innerText = "more";
       else
-        document.getElementById("energy").innerHtml = "less";
+        document.getElementById("energy").innerText = "less";
+
 
       // KEY --- LAND COLORS
       var currentHue = musicHues[musicKey];
@@ -150,10 +150,16 @@
       });
 
       // LISTENS PER HOUR --- NUMBER OF LANDS
-      if (landN == 2)
+      if (landN == 2) {
         landN = 0;
-      else if (landN == 0)
+        document.getElementById("listener").innerText = "very active";
+      } else if (landN == 0) {
         landN = 2;
+        document.getElementById("listener").innerText = "less active";
+      } else if (landN == 1) {
+        document.getElementById("listener").innerText = "active";
+      }
+      document.getElementById("pairsMountains").innerText = landN.toString();
 
 
       // Canvas element
