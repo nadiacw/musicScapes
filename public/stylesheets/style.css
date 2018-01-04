@@ -4,6 +4,7 @@ html, body {
 }
 
 /* Title and Tooltip container */
+
 .t1 {
   font-family: 'Work Sans', sans-serif;
   text-align: center;
@@ -106,15 +107,19 @@ canvas {
   border-radius: 6px;
   font-size: 0.35em;
   text-align: center;
-  /* Position the tooltip text - see examples below! */
-  /* width: auto; */
   bottom: 20%;
   position: absolute;
-  /* Use half of the width (120/2 = 60), to center the tooltip */
   z-index: 1;
-left: 50%;
+  left: 50%;
   margin-left: -20%;
   width: 40%;
+}
+
+@media only screen and (max-device-width: 768px) {
+  /* For mobile phones: */
+  .t1 .tooltiptext {
+    font-size: 0.5em;
+  }
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
