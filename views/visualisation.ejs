@@ -26,7 +26,7 @@
       <p>The <b>backgound</b> of your musicScape is <a id="valenceColor"></a> because you've recently listened to music that relates to <b id="valenceString"></b> emotions.</p>
       <p>It's <b id="daynighttime"></b> in your musicScape because your recent music is mostly in <b id="mode"></b> mode.</p>
       <p>The mountains are <a id="energy"></a> jagged because you've listened to <b><a id="energy1"></a> energetic</b> songs.</p>
-      <p>You've been a <b><a id="listener"></a> listener</b> in the past hours, so your musicScape has <a id="pairsMountains"></a> of mountains.</p>
+      <p>You've been <b><a id="listener"></a> listener</b> in the past hours, so your musicScape has <a id="pairsMountains"></a> of mountains.</p>
       <p>The <b>mountains</b> are tones of <a id="keyColor"></a> because your songs are mostly in the <b>key</b> <a id="keyName"><a>.</p>
     </span>
   </div>
@@ -159,14 +159,14 @@
       // LISTENS PER HOUR --- NUMBER OF LANDS
       if (landN == 2) {
         landN = 0;
-        document.getElementById("listener").innerText = "less active";
+        document.getElementById("listener").innerText = "a less active";
         document.getElementById("pairsMountains").innerText = "1 pair";
       } else if (landN == 0) {
         landN = 2;
-        document.getElementById("listener").innerText = "very active";
+        document.getElementById("listener").innerText = "a very active";
         document.getElementById("pairsMountains").innerText = "3 pairs";
       } else if (landN == 1) {
-        document.getElementById("listener").innerText = "active";
+        document.getElementById("listener").innerText = "an active";
         document.getElementById("pairsMountains").innerText = "2 pairs";
       }
 
