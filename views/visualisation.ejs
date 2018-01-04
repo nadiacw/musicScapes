@@ -30,9 +30,6 @@
       <p>The <b>mountains</b> are tones of <a id="keyColor"></a> because your songs are mostly in the <b>key</b> <a id="keyName"><a>.</p>
     </span>
   </div>
-  <!-- <div class="tooltip">Hover over me
-      <span class="tooltiptext">Tooltip text</span>
-    </div> -->
   <script>
     // Fade in on start
     $(document).ready(function() {
@@ -153,7 +150,7 @@
         alpha: 0.5
       });
 
-
+      // FOR THE TOOLTIP
       document.getElementById("keyColor").innerText = currentLum.toString() + " " + currentHue.toString();
       document.getElementById("keyColor").style.color = landColors[0];
       document.getElementById("keyName").innerText = keyNames[musicKey];
@@ -328,14 +325,7 @@
     }
 
 
-
-
-
-
-
-
-
-    // Not used right now!
+    // Other tests with interesting graphics but not used right now :)
 
     function getRandomColor() {
 
@@ -343,7 +333,6 @@
       return c;
 
     }
-
 
     function skyRipples() {
       stroke(randomColor({
