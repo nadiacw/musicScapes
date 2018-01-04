@@ -3,12 +3,14 @@ html, body {
   padding: 0;
 }
 
+/* Title and Tooltip container */
 .t1 {
   font-family: 'Work Sans', sans-serif;
   text-align: center;
   margin-top: 80vh;
   color: #a0a0a0;
   font-size: 2em;
+  cursor: pointer;
 }
 
 @media only screen and (max-device-width: 768px) {
@@ -91,35 +93,28 @@ canvas {
 
 /* Tooltip */
 
-/* Tooltip container */
-
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black;
-  /* If you want dots under the hoverable text */
-}
-
 /* Tooltip text */
 
 .t1 .tooltiptext {
   font-family: 'Roboto', sans-serif;
   visibility: hidden;
-  width: 120px;
-  background-color: #fcfcfc;
+  background-color: #f2f2f2;
   opacity: 0.75;
   color: #a0a0a0;
   text-align: center;
   padding: 5px 10px;
   border-radius: 6px;
-  font-size: 0.3em;
+  font-size: 0.4em;
   text-align: center;
   /* Position the tooltip text - see examples below! */
-  width: auto;
+  /* width: auto; */
   bottom: 20%;
   position: absolute;
   /* Use half of the width (120/2 = 60), to center the tooltip */
   z-index: 1;
+
+  margin-left: -30%;
+  width: 60%;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
