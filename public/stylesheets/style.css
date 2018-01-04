@@ -111,8 +111,8 @@ canvas {
   position: absolute;
   z-index: 1;
   left: 50%;
-  margin-left: -20%;
-  width: 40%;
+  margin-left: -15%;
+  width: 30%;
 }
 
 @media only screen and (max-device-width: 768px) {
