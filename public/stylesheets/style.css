@@ -119,6 +119,8 @@ canvas {
   /* For mobile phones: */
   .t1 .tooltiptext {
     font-size: 0.5em;
+    margin-left: -40%;
+    width: 80%;
   }
 }
 
