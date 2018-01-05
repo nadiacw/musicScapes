@@ -7,7 +7,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
 
-  <link href="https://fonts.googleapis.com/css?family=Work+Sans:100" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
   <title>
     <%= title %>
@@ -18,14 +19,22 @@
 <body>
   <div id="canvasDiv"></div>
   <div class="t1">
-    <a id="username"><%= u.id %></a><a>'s musicScape</a></div>
-
+    <a id="username">
+      <%= u.id %>
+    </a><a>'s musicScape</a>
+    <span class="tooltiptext">
+      <p>The <b>backgound</b> of your musicScape is <a id="valenceColor"></a> because you've recently listened to music that relates to <b id="valenceString"></b> emotions.</p>
+      <p>It's <b id="daynighttime"></b> in your musicScape because your recent music is mostly in <b id="mode"></b> mode.</p>
+      <p>The mountains are <a id="energy"></a> jagged because you've listened to <b><a id="energy1"></a> energetic</b> songs.</p>
+      <p>You've been <b><a id="listener"></a> listener</b> during the past 24 hours, so your musicScape has <a id="pairsMountains"></a> of mountains.</p>
+      <p>The <b>mountains</b> are tones of <a id="keyColor"></a> because your songs are mostly in the <b>key</b> <a id="keyName"><a>.</p>
+    </span>
+  </div>
   <script>
-
-  // Fade in on start
-  $(document).ready(function() {
-    $("body").hide().fadeIn(2000);
-  });
+    // Fade in on start
+    $(document).ready(function() {
+      $("body").hide().fadeIn(2000);
+    });
 
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
       var canvasW = 800;
@@ -48,8 +57,10 @@
 
     //////////////////////////////////////
 
-    var musicHues = ['yellow', 'yellow', 'orange', 'red', 'red', 'pink', 'pink', 'purple', 'blue', 'blue', 'green', 'green'];
+    var musicHues = ['monochrome', 'blue', 'green', 'purple', 'pink', 'red', 'orange', 'yellow'];
+    var musicKHues = ['yellow', 'yellow', 'orange', 'red', 'red', 'pink', 'pink', 'purple', 'blue', 'blue', 'green', 'green'];
     var musicLums = ['light', 'bright', 'bright', 'bright', 'light', 'bright', 'light', 'bright', 'bright', 'light', 'bright', 'light'];
+    var keyNames = ["C", "C♯/D♭", "D", "D♯/E♭", "E", "F", "F♯/G♭", "G", "G♯/A♭", "A", "A♯/B♭", "B"];
 
     var sunColors = [];
     var sunSize;
@@ -67,7 +78,7 @@
     function setup() {
 
       // VALENCE -- Background color
-      var valenceColor = musicHues[Math.round(map(valence, 0.0, 1.0, 11, 0))];
+      var valenceColor = musicHues[Math.round(map(valence, 0.0, 1.0, 0, 7))];
 
       // MODE -- day/night
       if (mode == 1) {
@@ -86,6 +97,9 @@
         });
         sunSize = random(200, 300);
         sunRange = random(20, 50);
+        document.getElementById("daynighttime").innerText = "daytime";
+        document.getElementById("mode").innerText = "major";
+
       } else if (mode == 0) {
         // Minor mode --- NIGHT
         backgroundColor1 = color(randomColor({
@@ -103,10 +117,30 @@
         });
         sunSize = random(75, 150);
         sunRange = random(5, 10);
+        document.getElementById("daynighttime").innerText = "nighttime";
+        document.getElementById("mode").innerText = "minor";
+
       }
 
+      // FOR THE TOOLTIP
+      document.getElementById("valenceColor").innerText = valenceColor.toString();
+      document.getElementById("valenceColor").style.color = backgroundColor1;
+      if (valence > 0.5)
+        document.getElementById("valenceString").innerText = "happy or cheerful";
+      else
+        document.getElementById("valenceString").innerText = "sad or angry";
+
+      if (energy > 0.5) {
+        document.getElementById("energy").innerText = "more";
+        document.getElementById("energy1").innerText = "more";
+      } else {
+        document.getElementById("energy").innerText = "less";
+        document.getElementById("energy1").innerText = "less";
+      }
+
+
       // KEY --- LAND COLORS
-      var currentHue = musicHues[musicKey];
+      var currentHue = musicKHues[musicKey];
       var currentLum = musicLums[musicKey];
 
       landColors = randomColor({
@@ -117,11 +151,24 @@
         alpha: 0.5
       });
 
+      // FOR THE TOOLTIP
+      document.getElementById("keyColor").innerText = currentLum.toString() + " " + currentHue.toString();
+      document.getElementById("keyColor").style.color = landColors[0];
+      document.getElementById("keyName").innerText = keyNames[musicKey];
+
       // LISTENS PER HOUR --- NUMBER OF LANDS
-      if (landN == 2)
+      if (landN == 2) {
         landN = 0;
-      else if (landN == 0)
+        document.getElementById("listener").innerText = "a less active";
+        document.getElementById("pairsMountains").innerText = "one pair";
+      } else if (landN == 0) {
         landN = 2;
+        document.getElementById("listener").innerText = "a very active";
+        document.getElementById("pairsMountains").innerText = "three pairs";
+      } else if (landN == 1) {
+        document.getElementById("listener").innerText = "an active";
+        document.getElementById("pairsMountains").innerText = "two pairs";
+      }
 
 
       // Canvas element
@@ -179,6 +226,9 @@
     }
 
     function makeLand(level, landColor) {
+
+      // mountains based on this openprocessing sketch: https://www.openprocessing.org/sketch/179401
+
       noStroke();
       fill(landColor);
       stroke(landColor);
@@ -276,14 +326,7 @@
     }
 
 
-
-
-
-
-
-
-
-    // Not used right now!
+    // Other tests with interesting graphics but not used right now :)
 
     function getRandomColor() {
 
@@ -291,7 +334,6 @@
       return c;
 
     }
-
 
     function skyRipples() {
       stroke(randomColor({

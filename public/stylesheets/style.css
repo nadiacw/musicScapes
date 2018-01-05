@@ -3,12 +3,15 @@ html, body {
   padding: 0;
 }
 
+/* Title and Tooltip container */
+
 .t1 {
   font-family: 'Work Sans', sans-serif;
   text-align: center;
   margin-top: 80vh;
   color: #a0a0a0;
   font-size: 2em;
+  cursor: pointer;
 }
 
 @media only screen and (max-device-width: 768px) {
@@ -36,6 +39,7 @@ html, body {
   padding: 0.4em 0.8em;
   display: inline-block;
   outline: none;
+  cursor: pointer;
 }
 
 .t3:hover {
@@ -87,4 +91,40 @@ canvas {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+/* Tooltip suff */
+
+/* Tooltip text */
+.t1 .tooltiptext {
+  font-family: 'Roboto', sans-serif;
+  visibility: hidden;
+  background-color: #f7f7f7;
+  opacity: 0.9;
+  color: #a0a0a0;
+  text-align: center;
+  padding: 0.5em 0.5em;
+  border-radius: 6px;
+  font-size: 0.35em;
+  text-align: center;
+  bottom: 20%;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  margin-left: -15%;
+  width: 30%;
+}
+
+@media only screen and (max-device-width: 768px) {
+  /* For mobile phones: */
+  .t1 .tooltiptext {
+    font-size: 0.5em;
+    margin-left: -40%;
+    width: 80%;
+  }
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.t1:hover .tooltiptext {
+  visibility: visible;
 }
