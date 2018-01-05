@@ -96,6 +96,7 @@ canvas {
 /* Tooltip suff */
 
 /* Tooltip text */
+
 .t1 .tooltiptext {
   font-family: 'Roboto', sans-serif;
   visibility: hidden;
@@ -125,6 +126,7 @@ canvas {
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
+
 .t1:hover .tooltiptext {
   visibility: visible;
 }
